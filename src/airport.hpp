@@ -72,5 +72,9 @@ public:
         }
     }
 
+    bool must_delete() override {
+        return false;
+    }
+
     friend class Tower;
 };

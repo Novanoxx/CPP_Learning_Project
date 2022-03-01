@@ -46,4 +46,8 @@ public:
             ++service_progress;
         }
     }
+
+    bool must_delete() override {
+        return false;
+    }
 };
