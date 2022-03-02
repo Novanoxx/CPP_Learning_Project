@@ -64,16 +64,13 @@ public:
 
     void display() const override { texture.draw(project_2D(pos), { 2.0f, 2.0f }); }
 
-    void move() override
+    bool move() override
     {
         for (auto& t : terminals)
         {
             t.move();
         }
-    }
-
-    bool must_delete() override {
-        return false;
+        return true;
     }
 
     friend class Tower;
