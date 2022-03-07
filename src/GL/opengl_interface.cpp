@@ -94,13 +94,13 @@ void timer(const int step)
         {
             if (!(*it)->move())
             {
-                // auto aircraft = (*it);
-                it = move_queue.erase(it);
-                // delete (aircraft);
+                auto aircraft = *it;
+                it            = move_queue.erase(it);
+                delete (aircraft); //<-- task0 C5 BUG : window closed when an aircraft move out of the window
             }
             else
             {
-                ++it;
+                it++;
             }
         }
     }

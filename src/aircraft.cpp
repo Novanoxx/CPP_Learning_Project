@@ -92,7 +92,7 @@ bool Aircraft::move()
 {
     if (waypoints.empty())
     {
-        if (has_finished)
+        if (has_finished) //<-- task0 C5
         {
             return false;
         }
