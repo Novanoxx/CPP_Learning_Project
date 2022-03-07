@@ -2,7 +2,8 @@
 
 int main(int argc, char** argv)
 {
-    TowerSimulation simulation { argc, argv };
+    ContextInitializer context = ContextInitializer { argc, argv };
+    TowerSimulation simulation { context };
     simulation.launch();
 
     return 0;
