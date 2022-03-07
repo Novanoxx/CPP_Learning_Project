@@ -66,6 +66,7 @@ void TowerSimulation::create_aircraft()
     }
     aircraft_factory.add_flight_number(aircraft->get_flight_num());
     aircraft_manager.add_aircraft(std::move(aircraft));
+    // std::cout << "Aircraft created" << std::endl;
 }
 
 void TowerSimulation::create_keystrokes()

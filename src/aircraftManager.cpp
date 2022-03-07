@@ -7,7 +7,7 @@ bool aircraftManager::move()
     for (auto it = aircrafts.begin(); it != aircrafts.end();)
     {
         auto& aircraft = **it;
-        if (aircraft.move())
+        if (!aircraft.move())
         {
             it = aircrafts.erase(it);
         }
