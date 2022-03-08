@@ -1,4 +1,4 @@
-#include "AircraftFactory.hpp"
+#include "aircraftFactory.hpp"
 
 std::unique_ptr<Aircraft> aircraftFactory::create_aircraft(const AircraftType& type, Airport* airport)
 {
