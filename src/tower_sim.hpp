@@ -28,9 +28,9 @@ class TowerSimulation
 private:
     bool help        = false;
     Airport* airport = nullptr;
+    ContextInitializer _context;
     aircraftManager aircraft_manager;
     aircraftFactory aircraft_factory;
-    ContextInitializer _context;
 
     TowerSimulation(const TowerSimulation&) = delete;
     TowerSimulation& operator=(const TowerSimulation&) = delete;
