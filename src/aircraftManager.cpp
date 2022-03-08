@@ -4,6 +4,7 @@
 
 bool aircraftManager::move()
 {
+    /* // Before task2
     for (auto it = aircrafts.begin(); it != aircrafts.end();)
     {
         auto& aircraft = **it;
@@ -16,6 +17,9 @@ bool aircraftManager::move()
             it++;
         }
     }
+    */
+    aircrafts.erase(std::remove_if(aircrafts.begin(), aircrafts.end(), [](std::unique_ptr<Aircraft>& it) { return !(*it).move();} ));
+
     return true;
 }
 
