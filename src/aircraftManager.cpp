@@ -18,7 +18,9 @@ bool aircraftManager::move()
         }
     }
     */
-    aircrafts.erase(std::remove_if(aircrafts.begin(), aircrafts.end(), [](std::unique_ptr<Aircraft>& it) { return !(*it).move();} ));
+    aircrafts.erase(std::remove_if(aircrafts.begin(), aircrafts.end(),
+                                   [](std::unique_ptr<Aircraft>& it) { return !(*it).move(); }),
+                    aircrafts.end());
 
     return true;
 }
