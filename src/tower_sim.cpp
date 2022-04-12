@@ -80,7 +80,54 @@ void TowerSimulation::create_keystrokes()
     GL::keystrokes.emplace('f', []() { GL::toggle_fullscreen(); });
     GL::keystrokes.emplace('a', []() { GL::slowfast_tick(3); });
     GL::keystrokes.emplace('z', []() { GL::slowfast_tick(-3); });
-    GL::keystrokes.emplace('p', []() { GL::pause_key(); });
+    GL::keystrokes.emplace('0',
+                           [this]() {
+                               std::cout << "AF : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(0))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('1',
+                           [this]() {
+                               std::cout << "LH : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(1))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('2',
+                           [this]() {
+                               std::cout << "EY (2): "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(2))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('3',
+                           [this]() {
+                               std::cout << "DL : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(3))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('4',
+                           [this]() {
+                               std::cout << "KL : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(4))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('5',
+                           [this]() {
+                               std::cout << "BA : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(5))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('6',
+                           [this]() {
+                               std::cout << "AY : "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(6))
+                                         << std::endl;
+                           });
+    GL::keystrokes.emplace('7',
+                           [this]() {
+                               std::cout << "EY (7): "
+                                         << aircraft_manager.count_airline(aircraft_factory.getAirline(7))
+                                         << std::endl;
+                           });
 }
 
 void TowerSimulation::display_help() const
@@ -88,7 +135,7 @@ void TowerSimulation::display_help() const
     std::cout << "This is an airport tower simulator" << std::endl
               << "the following keysstrokes have meaning:" << std::endl;
 
-    for (const auto& [x, y] : GL::keystrokes)   // task2 A
+    for (const auto& [x, y] : GL::keystrokes) // task2 A
     {
         std::cout << x << ' ';
     }

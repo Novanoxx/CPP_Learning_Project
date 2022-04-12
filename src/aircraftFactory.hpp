@@ -16,5 +16,6 @@ public:
     aircraftFactory() { init_aircraft_types(); }
     std::unique_ptr<Aircraft> create_random_aircraft(Airport* airport);
     void add_flight_number(const std::string& number);
-    std::set<std::string> getAircraftsSet() { return setAircrafts; }
+    std::set<std::string> getAircraftsSet() { return setAircrafts; };
+    std::string getAirline(int x) { return airlines[x]; }
 };

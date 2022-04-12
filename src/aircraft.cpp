@@ -94,7 +94,7 @@ bool Aircraft::move()
     {
         if (has_finished) //<-- task0 C5
         {
-            return false;
+            return true;
         }
         waypoints = control.get_instructions(*this);
     }
@@ -135,12 +135,18 @@ bool Aircraft::move()
             {
                 pos.z() -= SINK_FACTOR * (SPEED_THRESHOLD - speed_len);
             }
+            fuel--;
+            if (fuel <= 0.)
+            {
+                crash = true;
+                throw AircraftCrash { flight_number + " crashed because it was out of fuel" };
+            }
         }
 
         // update the z-value of the displayable structure
         GL::Displayable::z = pos.x() + pos.y();
     }
-    return true;
+    return false;
 }
 
 void Aircraft::display() const
