@@ -124,7 +124,10 @@ struct Point3D
 
     Point3D operator-() const { return Point3D { -x(), -y(), -z() }; }
 
-    float length() const { return std::sqrt(x() * x() + y() * y() + z() * z()); }
+    float length() const
+    {
+        return std::sqrt(std::inner_product(values.begin(), values.end(), values.begin(), float { 0 }));
+    }
 
     float distance_to(const Point3D& other) const { return (*this - other).length(); }
 
