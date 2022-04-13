@@ -20,7 +20,7 @@ private:
     Tower& control;
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal        = false;
-    bool has_finished          = false;
+    bool has_finished          = false; // check if the aircraft finished is circle
     float fuel                 = 150 + std::rand() % 2750;
     bool crash                 = false;
 
@@ -65,7 +65,8 @@ public:
 
     void display() const override;
     bool move() override;
-    bool deleteAircraft() const;
+    bool has_terminal() const;
+    bool is_circling() const;
 
     friend class Tower;
 };

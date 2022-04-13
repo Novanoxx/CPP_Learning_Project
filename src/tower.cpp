@@ -66,3 +66,6 @@ void Tower::arrived_at_terminal(const Aircraft& aircraft)
     assert(it != reserved_terminals.end());
     airport.get_terminal(it->second).start_service(aircraft);
 }
+
+WaypointQueue Tower::reserve_terminal(Aircraft& aircraft)
+{}
