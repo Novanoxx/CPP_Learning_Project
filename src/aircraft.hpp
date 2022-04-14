@@ -21,7 +21,7 @@ private:
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal        = false;
     bool has_finished          = false; // check if the aircraft finished is circle
-    float fuel                 = 150 + std::rand() % 2750;
+    int fuel                   = 150 + std::rand() % 2750;
     bool crash                 = false;
 
     // turn the aircraft to arrive at the next waypoint
@@ -41,7 +41,6 @@ private:
     // deploy and retract landing gear depending on next waypoints
     void operate_landing_gear();
     void add_waypoint(const Waypoint& wp, const bool front);
-    bool is_on_ground() const { return pos.z() < DISTANCE_THRESHOLD; }
     float max_speed() const { return is_on_ground() ? type.max_ground_speed : type.max_air_speed; }
 
     Aircraft(const Aircraft&) = delete;
@@ -66,7 +65,11 @@ public:
     void display() const override;
     bool move() override;
     bool has_terminal() const;
+    bool is_on_ground() const { return pos.z() < DISTANCE_THRESHOLD; }
     bool is_circling() const;
+    int checkFuel() const { return fuel; };
+    bool is_low_on_fuel() const;
+    void refill(int& fuel_sotck);
 
     friend class Tower;
 };

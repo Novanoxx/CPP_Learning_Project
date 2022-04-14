@@ -173,3 +173,28 @@ bool Aircraft::is_circling() const
 {
     return !waypoints.empty() && !has_terminal() && !has_finished;
 }
+
+bool Aircraft::is_low_on_fuel() const
+{
+    return fuel < 200;
+}
+
+void Aircraft::refill(int& fuel_stock)
+{
+    const int need = 3000 - fuel;
+    if (need <= 0)
+    {
+        return;
+    }
+    if (fuel_stock < need)
+    {
+        fuel += fuel_stock;
+        fuel_stock = 0;
+    }
+    else
+    {
+        fuel_stock -= need;
+        fuel += need;
+    }
+    std::cout << flight_number << " <-- " << need << "L Kerosene" << std::endl;
+}

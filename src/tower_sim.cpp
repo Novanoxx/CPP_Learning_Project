@@ -80,6 +80,7 @@ void TowerSimulation::create_keystrokes()
     GL::keystrokes.emplace('f', []() { GL::toggle_fullscreen(); });
     GL::keystrokes.emplace('a', []() { GL::slowfast_tick(3); });
     GL::keystrokes.emplace('z', []() { GL::slowfast_tick(-3); });
+    GL::keystrokes.emplace('p', []() { GL::pause_key(); });
     GL::keystrokes.emplace('0',
                            [this]() {
                                std::cout << "AF : "
@@ -145,8 +146,9 @@ void TowerSimulation::display_help() const
 
 void TowerSimulation::init_airport()
 {
-    airport = new Airport { one_lane_airport, Point3D { 0, 0, 0 },
-                            new img::Image { one_lane_airport_sprite_path.get_full_path() } };
+    airport =
+        new Airport { one_lane_airport, Point3D { 0, 0, 0 },
+                      new img::Image { one_lane_airport_sprite_path.get_full_path() }, aircraft_manager };
 
     GL::display_queue.emplace_back(airport);
     GL::move_queue.emplace(airport);

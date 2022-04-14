@@ -15,4 +15,5 @@ public:
     bool move() override;
     void add_aircraft(std::unique_ptr<Aircraft> aircraft);
     int count_airline(const std::string_view& x);
+    int get_required_fuel() const;
 };
