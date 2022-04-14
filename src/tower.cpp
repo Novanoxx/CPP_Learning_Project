@@ -68,4 +68,11 @@ void Tower::arrived_at_terminal(const Aircraft& aircraft)
 }
 
 WaypointQueue Tower::reserve_terminal(Aircraft& aircraft)
-{}
+{
+    const auto reserved = airport.reserve_terminal(aircraft);
+    if (!reserved.first.empty())
+    {
+        reserved_terminals[&aircraft] = reserved.second;
+    }
+    return reserved.first;
+}

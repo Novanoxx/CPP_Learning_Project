@@ -92,6 +92,7 @@ bool Aircraft::move()
 {
     if (waypoints.empty())
     {
+        // if the aircraft finished his service, then return true and it will be delete
         if (has_finished) //<-- task0 C5
         {
             return true;
@@ -104,6 +105,15 @@ bool Aircraft::move()
         turn_to_waypoint();
         // move in the direction of the current speed
         pos += speed;
+
+        if (is_circling())
+        {
+            WaypointQueue terminal = control.reserve_terminal(*this);
+            if (!terminal.empty())
+            {
+                waypoints = std::move(terminal);
+            }
+        }
 
         // if we are close to our next waypoint, stike if off the list
         if (!waypoints.empty() && distance_to(waypoints.front()) < DISTANCE_THRESHOLD)
