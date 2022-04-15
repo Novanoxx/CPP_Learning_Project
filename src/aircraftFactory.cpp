@@ -14,6 +14,7 @@ std::unique_ptr<Aircraft> aircraftFactory::create_aircraft(const AircraftType& t
 
 std::unique_ptr<Aircraft> aircraftFactory::create_random_aircraft(Airport* airport)
 {
+    assert(airport);
     return create_aircraft(*(aircraft_types[rand() % 3]), airport);
 }
 

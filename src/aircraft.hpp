@@ -21,7 +21,7 @@ private:
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal        = false;
     bool has_finished          = false; // check if the aircraft finished is circle
-    int fuel                   = 150 + std::rand() % 2750;
+    int fuel                   = 150 + std::rand() % 2850;
     bool crash                 = false;
 
     // turn the aircraft to arrive at the next waypoint

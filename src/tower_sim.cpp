@@ -81,6 +81,7 @@ void TowerSimulation::create_keystrokes()
     GL::keystrokes.emplace('a', []() { GL::slowfast_tick(3); });
     GL::keystrokes.emplace('z', []() { GL::slowfast_tick(-3); });
     GL::keystrokes.emplace('p', []() { GL::pause_key(); });
+    GL::keystrokes.emplace('m', [this]() { aircraft_manager.numberCrash(); });
     GL::keystrokes.emplace('0',
                            [this]() {
                                std::cout << "AF : "

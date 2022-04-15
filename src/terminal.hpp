@@ -22,7 +22,11 @@ public:
 
     bool in_use() const { return current_aircraft != nullptr; }
     bool is_servicing() const { return service_progress < SERVICE_CYCLES; }
-    void assign_craft(Aircraft& aircraft) { current_aircraft = &aircraft; }
+    void assign_craft(Aircraft& aircraft)
+    {
+        assert(&aircraft);
+        current_aircraft = &aircraft;
+    }
 
     void start_service(const Aircraft& aircraft)
     {
@@ -55,6 +59,7 @@ public:
 
     void refill_aircraft_if_needed(int& fuel_stock)
     {
+        assert(fuel_stock);
         if (in_use())
         {
             if (current_aircraft->is_low_on_fuel())

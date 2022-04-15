@@ -197,4 +197,6 @@ void Aircraft::refill(int& fuel_stock)
         fuel += need;
     }
     std::cout << flight_number << " <-- " << need << "L Kerosene" << std::endl;
+    assert(fuel_stock >= 0);
+    assert(fuel > 0);
 }

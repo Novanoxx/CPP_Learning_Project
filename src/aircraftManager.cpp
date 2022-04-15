@@ -41,6 +41,7 @@ bool aircraftManager::move()
                                           return aircraft->move();
                                       } catch (const AircraftCrash& crash)
                                       {
+                                          nbCrashed++;
                                           std::cerr << crash.what() << '\n';
                                           return true;
                                       }
@@ -51,6 +52,7 @@ bool aircraftManager::move()
 
 void aircraftManager::add_aircraft(std::unique_ptr<Aircraft> aircraft)
 {
+    assert(aircraft);
     aircrafts.push_back(std::move(aircraft));
 }
 
