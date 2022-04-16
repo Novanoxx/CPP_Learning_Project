@@ -23,8 +23,8 @@ private:
     Tower tower;
     // task 2 2.D.3
     int fuel_stock       = 0;
-    int ordered_fuel     = 5000;
-    int next_refill_time = 100;
+    int ordered_fuel     = 0;
+    int next_refill_time = 0;
     const aircraftManager& manager;
 
     // reserve a terminal

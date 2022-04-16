@@ -59,7 +59,6 @@ public:
 
     void refill_aircraft_if_needed(int& fuel_stock)
     {
-        assert(fuel_stock);
         if (in_use())
         {
             if (current_aircraft->is_low_on_fuel())
