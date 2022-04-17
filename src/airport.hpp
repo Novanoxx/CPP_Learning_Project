@@ -78,9 +78,9 @@ public:
         if (next_refill_time == 0)
         {
             assert(ordered_fuel >= 0);
+            int received = ordered_fuel;
             fuel_stock += ordered_fuel;
             assert(fuel_stock >= 0);
-            int received     = ordered_fuel;
             ordered_fuel     = std::min(manager.get_required_fuel(), 5000);
             next_refill_time = 100;
             std::cout << "Received : " << received << "L | In stock : " << fuel_stock
